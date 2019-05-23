@@ -77,3 +77,7 @@ docker run --rm -v $PWD:/app phpstan-drupal $path_to_lint
 * [phpmd/phpmd](https://packagist.org/packages/phpmd/phpmd) ("PHP mess detector") detects clean code problems, code size problems, design problems, naming problems, and unused code. Run with:
 
         docker run --rm -v $PWD:/app dockerizedphp/phpmd $path_to_lint text cleancode,codesize
+
+* [rector/rector](https://packagist.org/packages/rector/rector) ("reconstructor") automatically refactors php code. Run with:
+
+        docker run --rm -v $PWD:/project rector/rector:latest process $path_to_lint
