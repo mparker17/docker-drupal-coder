@@ -1,4 +1,4 @@
-FROM composer:1.8.0
+FROM composer:1.8.5
 WORKDIR /opt/phpstan
 RUN composer require 'mglaman/phpstan-drupal:0.11.7'
 WORKDIR /app
