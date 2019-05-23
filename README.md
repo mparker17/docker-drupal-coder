@@ -35,3 +35,31 @@ docker run --rm -v $PWD:/app phpcbf-drupal $path_to_lint
 docker run --rm -v $PWD:/app phpcs-drupalpractice $path_to_lint
 docker run --rm -v $PWD:/app phpcbf-drupalpractice $path_to_lint
 ```
+
+# Other tools
+
+[The dockerized-php project](https://github.com/dockerized-php) provides some code-quality-analysis tools that are not directly related to Drupal but are still pretty useful:
+
+* [bmitch/churn-php](https://packagist.org/packages/bmitch/churn-php) identifies php files that could be good candidates for refactoring based on how many git commits they have and their cyclomatic complexity. Run with:
+
+        docker run --rm -v $PWD:/app dockerizedphp/churn run $path_to_lint
+
+* [infection/infection](https://packagist.org/packages/infection/infection) measures the effectiveness of a test set in terms of its ability to detect faults. Run with:
+
+        docker run --rm -v $PWD:/app dockerizedphp/infection run $path_to_lint
+
+* [psecio/iniscan](https://packagist.org/packages/psecio/iniscan) scans a PHP.ini file to determine if it follows security best practices. Run with:
+
+        docker run --rm -v /path/to/php.ini:/tmp dockerizedphp/iniscan scan --path=php.ini
+
+* [phploc/phploc](https://packagist.org/packages/phploc/phploc) ("PHP lines of code") measures the comment+non-comment+logical lines of code in a set of PHP files, and analyzes their cyclomatic complexity, dependencies between them, and how they're structured, and provides a summary. Run with:
+
+        docker run --rm -v $PWD:/app dockerizedphp/phploc $path_to_lint
+
+* [povils/phpmnd](https://packagist.org/packages/povils/phpmnd) ("PHP magic number detector") detects numeric and string literals that could change at a later stage, and would otherwise be hard to update unless they are turned into constants. Run with:
+
+        docker run --rm -v $PWD:/app dockerizedphp/phpmnd $path_to_lint
+
+* [phpmd/phpmd](https://packagist.org/packages/phpmd/phpmd) ("PHP mess detector") detects clean code problems, code size problems, design problems, naming problems, and unused code. Run with:
+
+        docker run --rm -v $PWD:/app dockerizedphp/phpmd $path_to_lint text cleancode,codesize
