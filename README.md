@@ -9,6 +9,7 @@ This repository has several Docker images for Drupal code quality analysis...
 * `dephpend` which performs dependency analysis on a PHP project and its classes,
 * `phpcpd` ("PHP copy paste detector") which looks for duplicated code in a PHP project and its classes,
 * `phpmetrics` which generates a detailed report of metrics about a PHP project and its classes,
+* `phpstan-drupal` ("PHP static analysis - Drupal") which performs static analysis on a Drupal project,
 
 ... and several Docker images to automatically fix code quality issues...
 
@@ -30,6 +31,7 @@ docker build -t phpcbf-drupalpractice ./phpcbf-drupalpractice/
 docker build -t dephpend ./dephpend/
 docker build -t phpcpd ./phpcpd/
 docker build -t phpmetrics ./phpmetrics/
+docker build -t phpstan-drupal ./phpstan-drupal/
 ```
 
 ## Running
@@ -45,6 +47,7 @@ docker run --rm -v $PWD:/app phpcbf-drupalpractice $path_to_lint
 docker run --rm -v $PWD:/app dephpend text $path_to_lint
 docker run --rm -v $PWD:/app phpcpd $path_to_lint
 docker run --rm -v $PWD:/app phpmetrics $path_to_lint
+docker run --rm -v $PWD:/app phpstan-drupal $path_to_lint
 ```
 
 # Other tools
