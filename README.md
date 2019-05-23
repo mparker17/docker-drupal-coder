@@ -6,6 +6,7 @@ This repository has several Docker images for Drupal code quality analysis...
 * `eslint-es6-drupal` which runs Drupal's ECMAScript 6 coding standards lints,
 * `phpcs-drupal` which runs Drupal's coding standards lints,
 * `phpcs-drupalpractice` which runs Drupal's best practices lints,
+* `phpmetrics` which generates a detailed report of metrics about a PHP project and its classes,
 
 ... and several Docker images to automatically fix code quality issues...
 
@@ -23,6 +24,8 @@ docker build -t phpcs-drupal ./phpcs-drupal/
 docker build -t phpcbf-drupal ./phpcbf-drupal/
 docker build -t phpcs-drupalpractice ./phpcs-drupalpractice/
 docker build -t phpcbf-drupalpractice ./phpcbf-drupalpractice/
+
+docker build -t phpmetrics ./phpmetrics/
 ```
 
 ## Running
@@ -34,6 +37,8 @@ docker run --rm -v $PWD:/app phpcs-drupal $path_to_lint
 docker run --rm -v $PWD:/app phpcbf-drupal $path_to_lint
 docker run --rm -v $PWD:/app phpcs-drupalpractice $path_to_lint
 docker run --rm -v $PWD:/app phpcbf-drupalpractice $path_to_lint
+
+docker run --rm -v $PWD:/app phpmetrics $path_to_lint
 ```
 
 # Other tools
