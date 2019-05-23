@@ -7,6 +7,7 @@ This repository has several Docker images for Drupal code quality analysis...
 * `phpcs-drupal` which runs Drupal's coding standards lints,
 * `phpcs-drupalpractice` which runs Drupal's best practices lints,
 * `dephpend` which performs dependency analysis on a PHP project and its classes,
+* `phpcpd` ("PHP copy paste detector") which looks for duplicated code in a PHP project and its classes,
 * `phpmetrics` which generates a detailed report of metrics about a PHP project and its classes,
 
 ... and several Docker images to automatically fix code quality issues...
@@ -27,6 +28,7 @@ docker build -t phpcs-drupalpractice ./phpcs-drupalpractice/
 docker build -t phpcbf-drupalpractice ./phpcbf-drupalpractice/
 
 docker build -t dephpend ./dephpend/
+docker build -t phpcpd ./phpcpd/
 docker build -t phpmetrics ./phpmetrics/
 ```
 
@@ -41,6 +43,7 @@ docker run --rm -v $PWD:/app phpcs-drupalpractice $path_to_lint
 docker run --rm -v $PWD:/app phpcbf-drupalpractice $path_to_lint
 
 docker run --rm -v $PWD:/app dephpend text $path_to_lint
+docker run --rm -v $PWD:/app phpcpd $path_to_lint
 docker run --rm -v $PWD:/app phpmetrics $path_to_lint
 ```
 
