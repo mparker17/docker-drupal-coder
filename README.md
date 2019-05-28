@@ -36,6 +36,8 @@ docker build -t phpstan-drupal ./phpstan-drupal/
 
 ## Running
 
+If you've built the images locally, then you can run...
+
 ```
 docker run --rm -v $PWD:/app eslint-es5-drupal $path_to_lint
 docker run --rm -v $PWD:/app eslint-es6-drupal $path_to_lint
@@ -48,6 +50,22 @@ docker run --rm -v $PWD:/app dephpend text $path_to_lint
 docker run --rm -v $PWD:/app phpcpd $path_to_lint
 docker run --rm -v $PWD:/app phpmetrics $path_to_lint
 docker run --rm -v $PWD:/app phpstan-drupal $path_to_lint
+```
+
+... but I've also published these to [mparker17's Docker Hub](https://hub.docker.com/u/mparker17), so the following should work...
+
+```
+docker run --rm -v $PWD:/app mparker17/eslint-es5-drupal $path_to_lint
+docker run --rm -v $PWD:/app mparker17/eslint-es6-drupal $path_to_lint
+docker run --rm -v $PWD:/app mparker17/phpcs-drupal $path_to_lint
+docker run --rm -v $PWD:/app mparker17/phpcbf-drupal $path_to_lint
+docker run --rm -v $PWD:/app mparker17/phpcs-drupalpractice $path_to_lint
+docker run --rm -v $PWD:/app mparker17/phpcbf-drupalpractice $path_to_lint
+
+docker run --rm -v $PWD:/app mparker17/dephpend text $path_to_lint
+docker run --rm -v $PWD:/app mparker17/phpcpd $path_to_lint
+docker run --rm -v $PWD:/app mparker17/phpmetrics $path_to_lint
+docker run --rm -v $PWD:/app mparker17/phpstan-drupal $path_to_lint
 ```
 
 # Other tools
