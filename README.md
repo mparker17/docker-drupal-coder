@@ -41,9 +41,9 @@ If you've built the images locally, then you can run...
 ```
 docker run --rm -v $PWD:/app eslint-es5-drupal $path_to_lint
 docker run --rm -v $PWD:/app eslint-es6-drupal $path_to_lint
-docker run --rm -v $PWD:/app phpcs-drupal $path_to_lint
+docker run --rm -v $PWD:/app phpcs-drupal $path_to_lint # --report=summary
 docker run --rm -v $PWD:/app phpcbf-drupal $path_to_lint
-docker run --rm -v $PWD:/app phpcs-drupalpractice $path_to_lint
+docker run --rm -v $PWD:/app phpcs-drupalpractice $path_to_lint # --report=summary
 docker run --rm -v $PWD:/app phpcbf-drupalpractice $path_to_lint
 
 docker run --rm -v $PWD:/app dephpend text $path_to_lint
@@ -57,9 +57,9 @@ docker run --rm -v $PWD:/app phpstan-drupal $path_to_lint
 ```
 docker run --rm -v $PWD:/app mparker17/eslint-es5-drupal $path_to_lint
 docker run --rm -v $PWD:/app mparker17/eslint-es6-drupal $path_to_lint
-docker run --rm -v $PWD:/app mparker17/phpcs-drupal $path_to_lint
+docker run --rm -v $PWD:/app mparker17/phpcs-drupal $path_to_lint # --report=summary
 docker run --rm -v $PWD:/app mparker17/phpcbf-drupal $path_to_lint
-docker run --rm -v $PWD:/app mparker17/phpcs-drupalpractice $path_to_lint
+docker run --rm -v $PWD:/app mparker17/phpcs-drupalpractice $path_to_lint # --report=summary
 docker run --rm -v $PWD:/app mparker17/phpcbf-drupalpractice $path_to_lint
 
 docker run --rm -v $PWD:/app mparker17/dephpend text $path_to_lint
