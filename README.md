@@ -6,7 +6,10 @@ This repository has several Docker images for Drupal code quality analysis...
 * `eslint-es6-drupal` which runs Drupal's ECMAScript 6 coding standards lints,
 * `phpcs-drupal` which runs Drupal's coding standards lints,
 * `phpcs-drupalpractice` which runs Drupal's best practices lints,
+
+As well as some other useful tools...
 * `dephpend` which performs dependency analysis on a PHP project and its classes,
+* `jsonlint` which performs JSON syntax linting,
 * `phpcpd` ("PHP copy paste detector") which looks for duplicated code in a PHP project and its classes,
 * `phpmetrics` which generates a detailed report of metrics about a PHP project and its classes,
 * `phpstan-drupal` ("PHP static analysis - Drupal") which performs static analysis on a Drupal project,
@@ -29,6 +32,7 @@ docker build -t phpcs-drupalpractice ./phpcs-drupalpractice/
 docker build -t phpcbf-drupalpractice ./phpcbf-drupalpractice/
 
 docker build -t dephpend ./dephpend/
+docker build -t jsonlint ./jsonlint/
 docker build -t phpcpd ./phpcpd/
 docker build -t phpmetrics ./phpmetrics/
 docker build -t phpstan-drupal ./phpstan-drupal/
@@ -47,6 +51,7 @@ docker run --rm -v $PWD:/app phpcs-drupalpractice $path_to_lint # --report=summa
 docker run --rm -v $PWD:/app phpcbf-drupalpractice $path_to_lint
 
 docker run --rm -v $PWD:/app dephpend text $path_to_lint
+docker run --rm -v $PWD:/app jsonlint $path_to_lint
 docker run --rm -v $PWD:/app phpcpd $path_to_lint
 docker run --rm -v $PWD:/app phpmetrics $path_to_lint
 docker run --rm -v $PWD:/app phpstan-drupal $path_to_lint
@@ -63,6 +68,7 @@ docker run --rm -v $PWD:/app mparker17/phpcs-drupalpractice $path_to_lint # --re
 docker run --rm -v $PWD:/app mparker17/phpcbf-drupalpractice $path_to_lint
 
 docker run --rm -v $PWD:/app mparker17/dephpend text $path_to_lint
+docker run --rm -v $PWD:/app mparker17/jsonlint $path_to_lint
 docker run --rm -v $PWD:/app mparker17/phpcpd $path_to_lint
 docker run --rm -v $PWD:/app mparker17/phpmetrics $path_to_lint
 docker run --rm -v $PWD:/app mparker17/phpstan-drupal $path_to_lint
